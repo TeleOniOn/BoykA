@@ -65,7 +65,7 @@ io.write('\27[1;35m iD Sudo Saved \na┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 database:set(Server_Done.."UserSudo_Write",Id)
 end 
 else
-io.write('\27[0;31m┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n لم يتم حفظ ايدي المطور الاساسي ارسله مره اخره')
+io.write('\27[0;31m┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n id sudo not save PLZ Send agin')
 end
 os.execute('lua install.lua')
 end 
