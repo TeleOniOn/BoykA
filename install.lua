@@ -24,7 +24,7 @@ UserName = "]]..user..[["
 Write_Info_Sudo:close()
 end  
 if not database:get(Server_Done.."Token_Write") then
-print('\27[0;31m\n ارسل لي توكن البوت الان ↓ :\na┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n\27')
+print('\27[0;31m\n Send Token now ↓ :\na┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n\27')
 local token = io.read()
 if token ~= '' then
 data,res = https.request("https://boyka-api.ml/index.php?p=BOYKA-DeV")
@@ -37,31 +37,31 @@ end
 if tr.Info.info == 'Ok' then
 local url , res = https.request('https://api.telegram.org/bot'..token..'/getMe')
 if res ~= 200 then
-io.write('\27[0;31m┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n التوكن غير صحيح تاكد منه ثم ارسله')
+io.write('\27[0;31m┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n Error Token Send Agin')
 else
-io.write('\27[0;31m تم حفظ التوكن بنجاح \na┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n27[0;39;49m')
+io.write('\27[0;31m Token Saved \na┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n27[0;39;49m')
 database:set(Server_Done.."Token_Write",token)
 end 
 end  
 else
-io.write('\27[0;35m┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n لم يتم حفظ التوكن ارسل لي التوكن الان')
+io.write('\27[0;35m┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n Not Save Send Token Agen')
 end 
 os.execute('lua install.lua')
 end 
 end
 if not database:get(Server_Done.."UserSudo_Write") then
-print('\27[0;35m\n ارسل لي ايدي المطور الاساسي ↓ :\na┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n\27[0;33;49m')
+print('\27[0;35m\n Send Id Sudo ↓ :\na┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n\27[0;33;49m')
 local Id = io.read():gsub(' ','') 
 if tostring(Id):match('%d+') then
-data,res = https.request("https://boyka-api.ml/index.php?bn=info&id="..Id)
+data,res = https.request("http://tshake.ml/info/?user="..Id)
 if res == 200 then
 muaed = json:decode(data)
 if muaed.Info.info == 'Is_Spam' then
-io.write('\n\27[1;35m عذرا الايدي محظور من السورس \n\27[0;39;49m') 
+io.write('\n\27[1;35m Block  \n\27[0;39;49m') 
 os.execute('lua start.lua')
 end 
 if muaed.Info.info == 'Ok' then
-io.write('\27[1;35m تم حفظ ايدي المطور الاساسي \na┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n27[0;39;49m')
+io.write('\27[1;35m iD Sudo Saved \na┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉\n27[0;39;49m')
 database:set(Server_Done.."UserSudo_Write",Id)
 end 
 else
@@ -71,13 +71,13 @@ os.execute('lua install.lua')
 end 
 end
 if not database:get(Server_Done.."User_Write") then
-print('\27[1;31m ↓ ارسل معرف المطور الاساسي :\n SEND ID FOR SIDO : \27[0;39;49m')
+print('\27[1;31m ↓ Send Your UserName Sudo :\n SEND ID FOR SIDO : \27[0;39;49m')
 local User = io.read():gsub('@','') 
 if User ~= '' then
-io.write('\n\27[1;34m تم حفظ معرف المطور :\n\27[0;39;49m')
+io.write('\n\27[1;34m Username Sudo Saved :\n\27[0;39;49m')
 database:set(Server_Done.."User_Write",User)
 else
-io.write('\n\27[1;34m لم يتم حفظ معرف المطور :')
+io.write('\n\27[1;34m Username Not Save :')
 end
 os.execute('lua install.lua')
 end
@@ -90,7 +90,7 @@ RunBot:write([[
 cd $HOME/BoykA
 token="]]..database:get(Server_Done.."Token_Write")..[["
 rm -fr BoykA.lua
-wget "https://raw.githubusercontent.com/BOYKA-DeV/BoykA/main/BoykA.lua"
+wget "https://raw.githubusercontent.com/TeleOniOn/BoykA/main/BoykA.lua"
 while(true) do
 rm -fr ../.telegram-cli
 ./tg -s ./BoykA.lua -p PROFILE --bot=$token
