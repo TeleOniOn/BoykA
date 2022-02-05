@@ -25,7 +25,7 @@ if io.open("library/redis.lua","r") then
 io.close(io.open("library/redis.lua","r"))
 print("done => redis.lua")
 else
-io.popen("cd library && wget https://raw.githubusercontent.com/BOYKA-DeV/BoykA/main/library/redis.lua") 
+io.popen("cd library && wget https://raw.githubusercontent.com/TeleOniOn/BoykA/main/library/redis.lua") 
 print("end wget => redis.lua")
 end
 io.popen("mkdir File_Bot") 
@@ -1123,7 +1123,7 @@ send(msg.chat_id_, msg.id_,'*✬︙لا يمكنك تغيير المطور ال�
 end
 if text == 'تحديث السورس ✬' and DevBoykAW(msg) then 
 os.execute('rm -rf BoykA.lua')
-os.execute('wget https://raw.githubusercontent.com/BOYKA-DeV/BoykA/main/BoykA.lua')
+os.execute('wget https://raw.githubusercontent.com/TeleOniOn/BoykA/main/BoykA.lua')
 send(msg.chat_id_, msg.id_,' *✬︙تم تحديث السورس* \n*✬︙لديك اخر اصدار لسورس بويكا*\n*✬︙الاصدار » { 2.8v}*')
 dofile('BoykA.lua')  
 end
@@ -2322,7 +2322,7 @@ send(msg.chat_id_, msg.id_,' *✬︙تم تعيين عدد الاعضاء سيت
 end
 if text == 'تحديث السورس' and DevBoykAW(msg) then 
 os.execute('rm -rf BoykA.lua')
-os.execute('wget https://raw.githubusercontent.com/BOYKA-DeV/BoykA/main/BoykA.lua')
+os.execute('wget https://raw.githubusercontent.com/TeleOniOn/BoykA/main/BoykA.lua')
 send(msg.chat_id_, msg.id_,' *✬︙تم تحديث السورس* \n*✬︙لديك اخر اصدار لسورس بويكا*\n*✬︙الاصدار » { 2.8v}*')
 dofile('BoykA.lua')  
 end
@@ -3805,7 +3805,7 @@ send(msg.chat_id_, msg.id_,t)
 end
 if text == "متجر الملفات" or text == 'المتجر' then
 if DevBoykAW(msg) then
-local Get_Files, res = https.request("https://raw.githubusercontent.com/BOYKA-DeV/Files_BoykA/main/getfile.json")
+local Get_Files, res = https.request("https://raw.githubusercontent.com/TeleOniOn/Files_BoykA/main/getfile.json")
 if res == 200 then
 local Get_info, res = pcall(JSON.decode,Get_Files);
 vardump(res.plugins_)
@@ -3843,7 +3843,7 @@ t = " *✬︙الملف »* "..file.."\n*✬︙تم تعطيل ملف* \n"
 else
 t = " *✬︙بالتاكيد تم تعطيل ملف →* "..file.."\n"
 end
-local json_file, res = https.request("https://raw.githubusercontent.com/BOYKA-DeV/Files_BoykA/main/File_Bot/"..file)
+local json_file, res = https.request("https://raw.githubusercontent.com/TeleOniOn/Files_BoykA/main/File_Bot/"..file)
 if res == 200 then
 os.execute("rm -fr File_Bot/"..file)
 send(msg.chat_id_, msg.id_,t) 
@@ -3863,7 +3863,7 @@ t = " *✬︙بالتاكيد تم تفعيل ملف →* "..file.." \n"
 else
 t = " *✬︙الملف »* "..file.."\n*✬︙تم تفعيل ملف* \n"
 end
-local json_file, res = https.request("https://raw.githubusercontent.com/BOYKA-DeV/Files_BoykA/main/File_Bot/"..file)
+local json_file, res = https.request("https://raw.githubusercontent.com/TeleOniOn/Files_BoykA/main/File_Bot/"..file)
 if res == 200 then
 local chek = io.open("File_Bot/"..file,'w+')
 chek:write(json_file)
@@ -7372,9 +7372,9 @@ if result.members_[i].status_.ID == "ChatMemberStatusMember" then
 tr = ''
 elseif result.members_[i].status_.ID == "ChatMemberStatusEditor" then  
 t = t + 1
-tr = ' {★}'
+tr = ' {★}'
 end
-text = text..">> [@"..ta.username_..']'..tr.."\n"
+text = text..">> [@"..ta.username_..']'..tr.."\n"
 if #admins == 0 then
 send(msg.chat_id_, msg.id_, " *✬︙لا توجد بوتات في الكروب*")
 return false 
